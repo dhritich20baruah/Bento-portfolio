@@ -26,14 +26,16 @@ export default function Home() {
             <h1 className="text-white text-3xl p-5">Skills</h1>
             <ul className="text-white text-3xl space-y-3">
               <li>
-                <ul className="flex justify-evenly">
-                  <li><Image src="/images/css.png" alt="logos" width={500} height={500} className="rounded-full w-10 h-10 object-contain"/></li>
-                  <li><Image src="/images/js.jpg" alt="logos" width={500} height={500} className="rounded-full w-10 h-10 object-contain"/></li>
-                  <li><Image src="/images/nodejs.jpg" alt="logos" width={500} height={500} className="rounded-full w-10 h-10 object-contain"/></li>
-                  <li><Image src="/images/MongoDB.jpg" alt="logos" width={500} height={500} className="rounded-full w-10 h-10 object-contain"/></li>
-                  <li><Image src="/images/react.png" alt="logos" width={500} height={500} className="rounded-full w-10 h-10 object-contain"/></li>
-                  <li><Image src="/images/nextjs.png" alt="logos" width={500} height={500} className="rounded-full w-10 h-10 object-contain"/></li>
-                  <li><Image src="/images/tailwind.png" alt="logos" width={500} height={500} className="rounded-full w-10 h-10 object-contain"/></li>
+                <ul className="flex justify-evenly text-black">
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="html.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="css3.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="javascript.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="tailwindcss.svg" alt="logo" width={500} height={500} className="w-10 h-10 rounded-lg m-2"/></li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="reactjs.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="nextjs.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="mongodb.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="postgresql.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
+                
                 </ul>
               </li>
             </ul>
