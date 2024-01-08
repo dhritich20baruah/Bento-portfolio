@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -24,21 +25,89 @@ export default function Home() {
           </div>
           <div className="bg-black border-2 border-white rounded-xl text-center">
             <h1 className="text-white text-3xl p-5">Skills</h1>
-            <ul className="text-white text-3xl space-y-3">
-              <li>
-                <ul className="flex justify-evenly text-black">
-                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="html.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
-                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="css3.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
-                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="javascript.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
-                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="tailwindcss.svg" alt="logo" width={500} height={500} className="w-10 h-10 rounded-lg m-2"/></li>
-                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="reactjs.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
-                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="nextjs.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
-                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="mongodb.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
-                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center"><Image src="postgresql.svg" alt="logo" width={500} height={500} className="w-8 h-8"/></li>
-                
-                </ul>
-              </li>
-            </ul>
+            <div>
+              <ul className="flex justify-evenly text-black">
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <Image
+                    src="html.svg"
+                    alt="logo"
+                    width={500}
+                    height={500}
+                    className="w-8 h-8"
+                  />
+                </li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <Image
+                    src="css3.svg"
+                    alt="logo"
+                    width={500}
+                    height={500}
+                    className="w-8 h-8"
+                  />
+                </li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <Image
+                    src="javascript.svg"
+                    alt="logo"
+                    width={500}
+                    height={500}
+                    className="w-8 h-8"
+                  />
+                </li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <Image
+                    src="tailwindcss.svg"
+                    alt="logo"
+                    width={500}
+                    height={500}
+                    className="w-10 h-10 rounded-lg m-2"
+                  />
+                </li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <Image
+                    src="reactjs.svg"
+                    alt="logo"
+                    width={500}
+                    height={500}
+                    className="w-8 h-8"
+                  />
+                </li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <Image
+                    src="nextjs.svg"
+                    alt="logo"
+                    width={500}
+                    height={500}
+                    className="w-8 h-8"
+                  />
+                </li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <Image
+                    src="mongodb.svg"
+                    alt="logo"
+                    width={500}
+                    height={500}
+                    className="w-8 h-8"
+                  />
+                </li>
+                <li className="bg-white w-10 h-10 rounded-full flex items-center justify-center">
+                  <Image
+                    src="postgresql.svg"
+                    alt="logo"
+                    width={500}
+                    height={500}
+                    className="w-8 h-8"
+                  />
+                </li>
+              </ul>
+            </div>
+            <div className="flex justify-center mt-20">
+              <Link href="/Resume">
+              <button className="p-1 bg-black border-4 font-bold border-white text-white hover:bg-white hover:text-black">
+                RESUME
+              </button>
+              </Link>
+            </div>
           </div>
           <div className="bg-black border-2 border-white rounded-xl grid grid-cols-subgrid gap-4 row-span-2">
             <h2 className="text-3xl text-center text-white p-5">Blog</h2>
@@ -48,16 +117,66 @@ export default function Home() {
               Portfolio
             </h2>
             <ul className="mx-6 grid grid-cols-3 gap-2">
-              <li><Image src="/images/pic1.jpg" alt="portfolio-img" width={500} height={500} className="w-24 h-16 rounded-lg m-2"/></li>
-              <li><Image src="/images/pic2.jpg" alt="portfolio-img" width={500} height={500} className="w-24 h-16 rounded-lg m-2"/></li>
-              <li><Image src="/images/pic3.jpg" alt="portfolio-img" width={500} height={500} className="w-24 h-16 rounded-lg m-2"/></li>
-              <li><Image src="/images/pic4.jpg" alt="portfolio-img" width={500} height={500} className="w-24 h-16 rounded-lg m-2"/></li>
-              <li><Image src="/images/pic5.jpg" alt="portfolio-img" width={500} height={500} className="w-24 h-16 rounded-lg m-2"/></li>
-              <li><Image src="/images/pic6.jpg" alt="portfolio-img" width={500} height={500} className="w-24 h-16 rounded-lg m-2"/></li>
+              <li>
+                <Image
+                  src="/images/pic1.jpg"
+                  alt="portfolio-img"
+                  width={500}
+                  height={500}
+                  className="w-24 h-16 rounded-lg m-2"
+                />
+              </li>
+              <li>
+                <Image
+                  src="/images/pic2.jpg"
+                  alt="portfolio-img"
+                  width={500}
+                  height={500}
+                  className="w-24 h-16 rounded-lg m-2"
+                />
+              </li>
+              <li>
+                <Image
+                  src="/images/pic3.jpg"
+                  alt="portfolio-img"
+                  width={500}
+                  height={500}
+                  className="w-24 h-16 rounded-lg m-2"
+                />
+              </li>
+              <li>
+                <Image
+                  src="/images/pic4.jpg"
+                  alt="portfolio-img"
+                  width={500}
+                  height={500}
+                  className="w-24 h-16 rounded-lg m-2"
+                />
+              </li>
+              <li>
+                <Image
+                  src="/images/pic5.jpg"
+                  alt="portfolio-img"
+                  width={500}
+                  height={500}
+                  className="w-24 h-16 rounded-lg m-2"
+                />
+              </li>
+              <li>
+                <Image
+                  src="/images/pic6.jpg"
+                  alt="portfolio-img"
+                  width={500}
+                  height={500}
+                  className="w-24 h-16 rounded-lg m-2"
+                />
+              </li>
             </ul>
           </div>
           <div className="bg-black border-2 border-white rounded-xl p-4">
-            <h2 className="text-3xl font-semibold text-center text-white mt-2 mb-5">Contact</h2>
+            <h2 className="text-3xl font-semibold text-center text-white mt-2 mb-5">
+              Contact
+            </h2>
             <ul className="text-center text-white space-y-3">
               <li className="flex justify-center">
                 <i className="material-icons mr-2">call</i> +91-9999900000
@@ -70,10 +189,18 @@ export default function Home() {
               </li>
             </ul>
             <ul className="text-black flex justify-evenly m-6">
-              <li className="text-2xl bg-white py-1 px-2 rounded-md hover:cursor-pointer hover:bg-black hover:text-white"><i className="fa fa-linkedin-square"></i></li>
-              <li className="text-2xl bg-white py-1 px-2 rounded-md hover:cursor-pointer hover:bg-black hover:text-white"><i className="fa fa-facebook-square"></i></li>
-              <li className="text-2xl bg-white py-1 px-2 rounded-md hover:cursor-pointer hover:bg-black hover:text-white"><i className="fa fa-youtube-play"></i></li>
-              <li className="text-2xl bg-white py-1 px-2 rounded-md hover:cursor-pointer hover:bg-black hover:text-white"><i className="fa fa-github"></i></li>
+              <li className="text-2xl bg-white py-1 px-2 rounded-md hover:cursor-pointer hover:bg-black hover:text-white">
+                <i className="fa fa-linkedin-square"></i>
+              </li>
+              <li className="text-2xl bg-white py-1 px-2 rounded-md hover:cursor-pointer hover:bg-black hover:text-white">
+                <i className="fa fa-facebook-square"></i>
+              </li>
+              <li className="text-2xl bg-white py-1 px-2 rounded-md hover:cursor-pointer hover:bg-black hover:text-white">
+                <i className="fa fa-youtube-play"></i>
+              </li>
+              <li className="text-2xl bg-white py-1 px-2 rounded-md hover:cursor-pointer hover:bg-black hover:text-white">
+                <i className="fa fa-github"></i>
+              </li>
             </ul>
           </div>
         </div>
