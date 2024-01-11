@@ -1,7 +1,20 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios"
+import { useState, useEffect } from "react";
+
+type itemsType = {
+    _id: string,
+    title: string;
+    content: string
+}
 
 export default function Home() {
+  const [items, setItems] = useState<itemsType[]>([])
+  useEffect(()=>{
+      axios.get('/api/posts').then((res)=> setItems(res.data))
+  }, [])
   return (
     <>
       <main className="p-10 bg-gradient-to-r from-black to-gray-900 h-[100vh]">
@@ -111,6 +124,17 @@ export default function Home() {
           </div>
           <div className="bg-black border-2 border-white rounded-xl grid grid-cols-subgrid gap-4 row-span-2">
             <h2 className="text-3xl text-center text-white p-5">Blog</h2>
+            <div>
+                {items.map((item)=>{
+                    return(
+                        <Link href={"/Blog/"+item._id}  key={item._id} >
+                        <ul className="text-white m-10 p-5 rounded-md">
+                            <li className="text-lg">{item.title}</li>
+                        </ul>
+                        </Link>
+                    )
+                })}
+            </div>
           </div>
           <div className="bg-black border-2 border-white rounded-xl">
             <h2 className="text-3xl font-semibold text-center text-white p-5">
