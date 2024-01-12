@@ -1,21 +1,14 @@
-"use client"
-import { useEffect, useState } from "react"
 import parse from "html-react-parser"
 import Link from "next/link"
-import axios from "axios"
+import Blog, {BlogType} from "../models/Blog"
+import { Document } from "mongoose"
+import dbConnect from "../../utils/dbConnect"
 
-type itemsType = {
-    _id: string,
-    title: string;
-    content: string
-}
+type BlogPosts = Document & BlogType
 
-export default function Blogs(){
-    const [items, setItems] = useState<itemsType[]>([])
-    useEffect(()=>{
-        axios.get('/api/posts').then((res)=> setItems(res.data))
-    }, [])
-    console.log(items)
+export default async function Blogs(){
+    dbConnect()
+    let items: BlogPosts[] = await Blog.find({}).sort({dated: -1})
     return(
         <>
              <h1 className="text-center text-4xl text-white underline my-10">BLOG</h1>

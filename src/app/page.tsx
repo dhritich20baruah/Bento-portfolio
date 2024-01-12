@@ -1,20 +1,15 @@
-"use client"
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios"
-import { useState, useEffect } from "react";
+import dbConnect from "../utils/dbConnect";
+import Blog, { BlogType } from "./models/Blog";
+import { Document } from "mongoose";
 
-type itemsType = {
-    _id: string,
-    title: string;
-    content: string
-}
+type BlogPosts = Document & BlogType;
 
-export default function Home() {
-  const [items, setItems] = useState<itemsType[]>([])
-  useEffect(()=>{
-      axios.get('/api/posts').then((res)=> setItems(res.data))
-  }, [])
+export default async function Home() {
+  dbConnect();
+  let items: BlogPosts[] = await Blog.find({}).sort({ dated: -1 }).limit(5);
+
   return (
     <>
       <main className="p-10 bg-gradient-to-r from-black to-gray-900 h-[100vh]">
@@ -116,24 +111,33 @@ export default function Home() {
             </div>
             <div className="flex justify-center mt-20">
               <Link href="/Resume">
-              <button className="p-1 bg-black border-4 font-bold border-white text-white hover:bg-white hover:text-black">
-                RESUME
-              </button>
+                <button className="p-1 bg-black border-4 font-bold border-white text-white hover:bg-white hover:text-black">
+                  RESUME
+                </button>
               </Link>
             </div>
           </div>
-          <div className="bg-black border-2 border-white rounded-xl grid grid-cols-subgrid gap-4 row-span-2">
+          <div className="bg-black border-2 border-white rounded-xl row-span-2">
             <h2 className="text-3xl text-center text-white p-5">Blog</h2>
             <div>
-                {items.map((item)=>{
-                    return(
-                        <Link href={"/Blog/"+item._id}  key={item._id} >
-                        <ul className="text-white m-10 p-5 rounded-md">
-                            <li className="text-lg">{item.title}</li>
-                        </ul>
-                        </Link>
-                    )
-                })}
+              {items.map((item) => {
+                return (
+                    <Link href={"/Blog/" + item._id} key={item._id}>
+                      <ul className="text-black m-5 p-5 rounded-md bg-white hover:shadow-gray-700 shadow-lg">
+                        <li className="text-lg font-semibold hover:cursor-pointer">
+                          {item.title}
+                        </li>
+                      </ul>
+                    </Link>      
+                );
+              })}
+               <div className="flex justify-center">
+                      <Link href="/Blog">
+                        <button className="p-1 bg-black border-4 font-bold border-white text-white hover:bg-white hover:text-black">
+                          VIEW ALL
+                        </button>
+                      </Link>
+                    </div>
             </div>
           </div>
           <div className="bg-black border-2 border-white rounded-xl">
