@@ -4,7 +4,7 @@ import Blog, { BlogType } from "@/app/models/Blog";
 import { Document } from "mongoose";
 import Link from "next/link";
 import Comment, {CommentType} from "@/app/models/Comment";
-import CommentComponent from "./Comment";
+import CommentSection from "./Comment";
 
 type BlogPosts = Document & BlogType;
 type Comments = Document & CommentType;
@@ -46,8 +46,9 @@ export default async function post({ params }: { params: { id: string } }) {
           </div>
         </div>
       </div>
-      <div className="m-5 bg-white p-5 rounded-md col-span-2">
-      <CommentComponent blogsId={postID}/>
+      <div className="m-5 bg-white px-5 rounded-md col-span-2 overflow-auto">
+      <CommentSection blogsId={postID}/>
+      {/* <CommentSection/> */}
                 {CommentArr.map((e)=>{
                     return(
                         <div className="border-2 p-3 m-3 border-gray-500 rounded-md" key={e._id}>
